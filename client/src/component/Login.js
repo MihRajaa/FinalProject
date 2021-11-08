@@ -1,39 +1,27 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { signUp } from "../redux/actions";
+import { Navigate } from "react-router";
+import { signIn } from "../redux/actions";
 
-const Register = () => {
-  const { loading, user } = useSelector((state) => state);
-  const [fullName, setFullName] = useState("");
+const Login = () => {
+  const { loading, isAuth } = useSelector((state) => state);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUp({ fullName, email, password }));
+    dispatch(signIn({ email, password }));
   };
-
   return (
-    <div className="login">
+    <div>
       {loading ? (
-        <h2>Loading ...</h2>
-      ) : user ? (
-        <Navigate to="/login" />
+        <h2>Loading...</h2>
+      ) : isAuth ? (
+        <Navigate to="/profile" />
       ) : (
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Full Name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-            />
-          </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -68,4 +56,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
