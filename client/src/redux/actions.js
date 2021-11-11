@@ -1,5 +1,9 @@
 import axios from "axios";
 import {
+  ADD_TASK,
+  DELETE_TASK,
+  EDIT_TASK,
+  LIST_TASK,
   LOGIN,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
@@ -7,6 +11,8 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "./actionTypes";
+
+// Registration
 
 export const signUp = (newUser) => async (dispatch) => {
   dispatch({
@@ -27,6 +33,8 @@ export const signUp = (newUser) => async (dispatch) => {
   }
 };
 
+// Login
+
 export const signIn = (user) => async (dispatch) => {
   dispatch({
     type: LOGIN,
@@ -46,3 +54,73 @@ export const signIn = (user) => async (dispatch) => {
     });
   }
 };
+
+// add task
+
+export const addTask = (newTask) => async (dispatch) => {
+  try {
+    const res = await axios.post("/task/addTask", newTask);
+    dispatch({
+      type: ADD_TASK,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ADD_TASK,
+      payload: error.response.data,
+    });
+  }
+};
+
+// get tasks
+
+export const getTask = (task) => async (dispatch) => {
+  try {
+    const res = await axios.get("/task/getTask", task);
+    dispatch({
+      type: LIST_TASK,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: LIST_TASK,
+      payload: error.response.data,
+    });
+  }
+};
+
+// edit & complete task
+
+export const updateTask = (id, task) => async (dispatch) => {
+  try {
+    const res = await axios.put(`/task/updateTask/${id}`, task);
+    dispatch({
+      type: EDIT_TASK,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: EDIT_TASK,
+      payload: error.response.data,
+    });
+  }
+};
+
+// delete task
+
+export const deleteTask = (id, task) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/task/deleteTask/${id}`, task);
+    dispatch({
+      type: DELETE_TASK,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: DELETE_TASK,
+      payload: error.response.data,
+    });
+  }
+};
+
+// filter tasks

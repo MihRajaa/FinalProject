@@ -15,7 +15,7 @@ const init = {
   token: localStorage.getItem("token"),
 };
 
-const reducer = (state = init, { type, payload }) => {
+const authReducer = (state = init, { type, payload }) => {
   switch (type) {
     // Registration
     case REGISTER:
@@ -64,4 +64,4 @@ const reducer = (state = init, { type, payload }) => {
   }
 };
 
-export default reducer;
+export default authReducer;

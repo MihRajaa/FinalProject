@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
+import { Link } from "react-router-dom";
 import { signIn } from "../redux/actions";
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
     dispatch(signIn({ email, password }));
   };
   return (
-    <div>
+    <div className="formulaire">
       {loading ? (
         <h2>Loading...</h2>
       ) : isAuth ? (
@@ -34,7 +35,6 @@ const Login = () => {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -44,11 +44,16 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button className="btn_form" variant="primary" type="submit">
             Submit
+          </Button>
+          <Button className="btn_form" type="button">
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/register"
+            >
+              SignUp
+            </Link>
           </Button>
         </Form>
       )}

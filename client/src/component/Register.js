@@ -17,7 +17,7 @@ const Register = () => {
   };
 
   return (
-    <div className="login">
+    <div className="formulaire">
       {loading ? (
         <h2>Loading ...</h2>
       ) : user ? (
@@ -56,10 +56,14 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group
+            className="mb-3"
+            style={{ display: "block ruby" }}
+            controlId="formBasicCheckbox"
+          >
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button className="btn_form" variant="primary" type="submit">
             Submit
           </Button>
         </Form>

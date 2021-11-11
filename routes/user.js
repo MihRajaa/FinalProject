@@ -5,10 +5,10 @@ const {
   registerRules,
   UserValidator,
 } = require("../middlewares/UserValidator");
-const router = express.Router();
+const Router = express.Router();
 
-router.post("/register", registerRules(), UserValidator, register);
-router.post("/login", login);
-router.get("/getUser", auth, getUser);
+Router.post("/register", registerRules(), UserValidator, register);
+Router.post("/login", login);
+Router.get("/getUser", auth, getUser);
 
-module.exports = router;
+module.exports = Router;

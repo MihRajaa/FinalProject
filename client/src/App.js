@@ -5,17 +5,24 @@ import "./App.css";
 import Register from "./component/Register";
 import Login from "./component/Login";
 import Profile from "./component/Profile";
+import Header from "./component/Header";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="header">
+        <Header />
+      </div>
+      <div className="main-container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="" element="" />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

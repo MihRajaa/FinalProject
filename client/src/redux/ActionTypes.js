@@ -9,3 +9,9 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+
+// Task
+export const LIST_TASK = "LIST_TASK";
+export const ADD_TASK = "ADD_TASK";
+export const DELETE_TASK = "DELETE_TASK";
+export const EDIT_TASK = "EDIT_TASK";
