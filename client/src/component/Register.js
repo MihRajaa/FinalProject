@@ -21,7 +21,7 @@ const Register = () => {
       {loading ? (
         <h2>Loading ...</h2>
       ) : user ? (
-        <Navigate to="/login" />
+        <Navigate to="/todoList" />
       ) : (
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

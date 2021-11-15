@@ -20,7 +20,7 @@ const Login = () => {
       {loading ? (
         <h2>Loading...</h2>
       ) : isAuth ? (
-        <Navigate to="/profile" />
+        <Navigate to="/todoList" />
       ) : (
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

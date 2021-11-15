@@ -6,6 +6,7 @@ import Register from "./component/Register";
 import Login from "./component/Login";
 import Profile from "./component/Profile";
 import Header from "./component/Header";
+import TodoList from "./component/TodoList";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="" element="" />
+            <Route path="/todoList" element={<TodoList />} />
           </Routes>
         </BrowserRouter>
       </div>
